@@ -23,8 +23,12 @@ class Fighter {
         return 1 + Math.floor(Math.random() * max);
     }
 
+    getDamage(strength, weapon){
+        return (weapon.damage === null ? strength : strength + weapon.damage);
+    }
+
     fight(enemy){
-      const hit = this.getRandomInt(this.strength);
+      const hit = this.getRandomInt(getDamage(this.strength, this.weapon));
       enemy.wound = Math.max(hit - enemy.dexterity, 0);
       enemy.life = Math.max(enemy.life - enemy.wound, 0)
     }
