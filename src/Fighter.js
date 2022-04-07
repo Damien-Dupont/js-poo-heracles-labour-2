@@ -1,7 +1,15 @@
 const MAX_LIFE = 100;
 
+class Weapon {
+    constructor(name, damage=10, emoji){
+        this.name=name;
+        this.damage = damage;
+        this.emoji=emoji;
+    }
+}
+
 class Fighter {
-    constructor(name, strength, dexterity, emoji='👹', heart='💜') {
+    constructor(name, strength, dexterity, emoji='👹', heart='💜', weapon=null) {
         this.name = name;
         this.emoji = emoji;
         this.strength = strength;
@@ -9,6 +17,7 @@ class Fighter {
         this.heart = heart;
         this.life = MAX_LIFE;
         this.wound = 0;
+        this.weapon = weapon;
     }
     getRandomInt(max){
         return 1 + Math.floor(Math.random() * max);
