@@ -28,7 +28,7 @@ class Fighter {
     }
 
     fight(enemy){
-      const hit = this.getRandomInt(getDamage(this.strength, this.weapon));
+      const hit = this.getRandomInt(this.getDamage(this.strength, this.weapon));
       enemy.wound = Math.max(hit - enemy.dexterity, 0);
       enemy.life = Math.max(enemy.life - enemy.wound, 0)
     }
