@@ -15,8 +15,8 @@ class Fighter {
         return 1 + Math.floor(Math.random() * max);
     }
 
-    getDamage(strength, weapon){
-        return (weapon.damage === null ? strength : strength + weapon.damage);
+    getDamage(strength, weapon){  
+        return (weapon === null ? strength : strength + weapon.damage);
     }
 
     fight(enemy){
@@ -24,6 +24,13 @@ class Fighter {
       enemy.wound = Math.max(hit - enemy.dexterity, 0);
       enemy.life = Math.max(enemy.life - enemy.wound, 0)
     }
+/*  retour sur épisode 1 ///
+    fight(enemy){
+      const hit = this.getRandomInt(this.strength);
+      enemy.wound = Math.max(hit - enemy.dexterity, 0);
+      enemy.life = Math.max(enemy.life - enemy.wound, 0);
+    }
+*/
 
     isAlive() {
         return this.life > 0;

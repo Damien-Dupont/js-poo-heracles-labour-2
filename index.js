@@ -34,8 +34,6 @@ const score = (fighter1, fighter2) => {
   };
 };
 
-
-
 let round = 1;
 
 while (heracles.isAlive() && boar.isAlive()) {
