@@ -1,5 +1,6 @@
 const Fighter = require("./src/Fighter.js");
-const Weapon = require("./src/Weapon.js")
+const Weapon = require("./src/Weapon.js");
+const Shield = require("./src/Shield.js");
 
 /** Create Heracles  */
 const heracles = new Fighter("Heracles", 20, 6, '🧔', '💚');
@@ -11,14 +12,20 @@ const boar = new Fighter("Erymanthian Boar", 25, 12, '🐗');
 const sword = new Weapon("épée");
 heracles.weapon = sword;
 
+/** Create the shield  */
+const woodenShield = new Shield("bouclier");
+heracles.shield = woodenShield;
+
 /**
  * Helper to produce the result of a round
  */
  const roundDisplay = (attacker, enemy) => {
+  let fightPhrase = `${attacker.name} ${attacker.emoji}🗡️${enemy.emoji} ${enemy.name} => ${enemy.emoji}`;
+  // ajouter affichage des armes VS bouclier en lieu et place de l'emoji épée
   return enemy.wound === 0 ?
-  `${attacker.name} ${attacker.emoji}🗡️${enemy.emoji} ${enemy.name} => ${enemy.emoji}🛡️`
+  `${fightPhrase}🛡️`
   :
-  `${attacker.name} ${attacker.emoji}🗡️${enemy.emoji} ${enemy.name} => ${enemy.emoji}:` + (enemy.life > 0 ? ` ${enemy.life}${enemy.heart}` : `💀`);
+  `${fightPhrase}:` + (enemy.life > 0 ? ` ${enemy.life}${enemy.heart}` : `💀`);
 };
 
 /**

@@ -11,6 +11,8 @@ class Fighter {
         this.wound = 0;
         this.weapon = weapon;
         this.shield = shield;
+        // ajouter un emoji POING pour le weapon = null
+        // ajouter un emoji MAIN pour le shield = null
     }
     getRandomInt(max){
         return 1 + Math.floor(Math.random() * max);
@@ -20,13 +22,13 @@ class Fighter {
         return (weapon === null ? strength : strength + weapon.damage);
     }
 
-    getDefense(dexterity, shield){  
+    getDefense(dexterity, shield){
         return (shield === null ? dexterity : dexterity + shield.protection);
     }
 
     fight(enemy){
       const hit = this.getRandomInt(this.getDamage(this.strength, this.weapon));
-      enemy.wound = Math.max(hit - getDefense(enemy.dexterity, enemy.shield), 0);
+      enemy.wound = Math.max(hit - this.getDefense(enemy.dexterity, enemy.shield), 0);
       enemy.life = Math.max(enemy.life - enemy.wound, 0)
     }
 /*  retour sur épisode 1 ///
@@ -42,4 +44,4 @@ class Fighter {
 }
 }
 
-module.exports = Fighter;
+module.exports = Fighter
